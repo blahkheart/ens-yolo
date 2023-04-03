@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Menu, Spin, Button } from "antd";
-// import { SyncOutlined, LaptopOutlined, NotificationOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
 import { CenterContent, ContentRow, ContentCol } from "../components";
 import { Link, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { Hints } from ".";
@@ -8,13 +7,6 @@ import { YoloEns, ClaimEns, CancelYolo, Quest } from "../components/";
 const ethers = require("ethers");
 
 export default function ExampleUI({
-  // blockExplorer,
-  // localProvider,
-  // localChainId,
-  // contractConfig,
-  // name,
-  // targetNetwork,
-  // ...props
   mainnetProvider,
   address,
   userSigner,
@@ -22,15 +14,15 @@ export default function ExampleUI({
   writeContracts,
   injectedProvider,
   loadWeb3Modal,
-  tx
+  tx,
 }) {
   const [isLoading, setIsLoading] = useState(true);
   let history = useHistory();
   const location = useLocation();
   // set ENS contracts
-  const ensRegistryABI = require("../contracts/imported/ABI/ENSRegistry.json");
+  const ensRegistryABI = require("../contracts/imported/abis/ENSRegistry.json");
   const ensRegistryAddress = "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e";
-  const baseRegistrarABI = require("../contracts/imported/ABI/BaseRegistrarImplementation.json");
+  const baseRegistrarABI = require("../contracts/imported/abis/BaseRegistrarImplementation.json");
   const baseRegistrarAddress = "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85";
   const BigNumber = ethers.BigNumber;
   const utils = ethers.utils;
@@ -101,9 +93,9 @@ export default function ExampleUI({
           <Menu.Item key="/dashboard/cancel">
             <Link to="/dashboard/cancel">CANCEL</Link>
           </Menu.Item>
-          <Menu.Item key="/dashboard/quest">
+          {/* <Menu.Item key="/dashboard/quest">
             <Link to="/dashboard/quest">QUEST</Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
 
         <Switch>
@@ -172,6 +164,9 @@ export default function ExampleUI({
             <div>
               <h2 style={{ marginTop: 30 }}>QUEST</h2>
               <Quest
+                address={address}
+                userSigner={userSigner}
+                ensRegistryContract={ensRegistryContract}
                 maxWidth={1250}
                 margin={"auto"}
                 display={"flex"}
