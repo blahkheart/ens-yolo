@@ -11,6 +11,9 @@ import {IConnext} from "@connext/nxtp-contracts/contracts/core/connext/interface
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
+//TODO
+// claim ens closes any active quest on that ens
+
 abstract contract ENSBaseRegistrarImplementation {
     function safeTransferFrom(
         address from,

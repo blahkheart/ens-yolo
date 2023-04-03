@@ -40,7 +40,7 @@ git clone https://github.com/unlock-protocol/scaffold-eth-unlock.git
 
 ```bash
 cd scaffold-eth-unlock
-git checkout ensyolo
+git checkout ensyolo-xcall
 yarn install
 yarn chain
 ```
